@@ -27,4 +27,9 @@ public class Equipement {
 
     @ManyToMany(mappedBy = "equipements", fetch = FetchType.LAZY)
     private Set<Vehicule> vehicules = new HashSet<>();
+
+    public Long getId() {
+        return idEquipement;
+
+    }
 }

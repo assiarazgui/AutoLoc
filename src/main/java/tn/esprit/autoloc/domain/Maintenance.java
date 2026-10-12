@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -28,6 +29,18 @@ public class Maintenance {
     @Column(length = 255)
     private String description;
 
+    @Column(precision = 10, scale = 2)
+    private BigDecimal cout; // Ajouté pour correspondre au service
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Vehicule vehicule;
+
+    // Méthode de compatibilité pour le service
+    public Long getId() {
+        return idMaintenance;
+    }
+
+    public void setId(Long idMaintenance) {
+        this.idMaintenance = idMaintenance;
+    }
 }

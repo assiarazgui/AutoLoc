@@ -42,4 +42,8 @@ public class Client {
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private List<Reservation> reservations = new ArrayList<>();
+
+    public Long getId() {
+        return idClient;
+    }
 }

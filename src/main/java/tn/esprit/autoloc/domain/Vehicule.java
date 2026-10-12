@@ -6,8 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -35,6 +33,9 @@ public class Vehicule {
     @Column(nullable = false, length = 50)
     private String modele;
 
+    @Column(nullable = false)
+    private int kilometrage; // <-- Ajout du champ manquant
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private CategorieVehicule categorie;
@@ -59,4 +60,13 @@ public class Vehicule {
 
     @OneToMany(mappedBy = "vehicule", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private List<Maintenance> maintenances = new ArrayList<>();
+
+    // Méthode de compatibilité pour le service (getId)
+    public Long getId() {
+        return idVehicule;
+    }
+
+    public void setId(Long idVehicule) {
+        this.idVehicule = idVehicule;
+    }
 }

@@ -38,4 +38,12 @@ public class Agence {
 
     @OneToMany(mappedBy = "agence", fetch = FetchType.LAZY)
     private List<Employe> employes = new ArrayList<>();
+
+    public void setId(Long idAgence) {
+        this.idAgence = idAgence;
+    }
+
+    public Long getId() {
+        return idAgence;
+    }
 }

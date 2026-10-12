@@ -17,6 +17,7 @@ public class Employe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEmploye;
+    private String post;
 
     @Column(nullable = false, length = 50)
     private String nom;
@@ -30,4 +31,21 @@ public class Employe {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Agence agence;
+
+    public String getPoste() {
+        return post;
+    }
+
+    public Long getId() {
+        return idEmploye;
+    }
+    public void setId(Long idEmploye) {
+        this.idEmploye=idEmploye;
+    }
+
+    public void setPoste(String poste) {
+        this.post = poste;
+    }
+
+
 }
